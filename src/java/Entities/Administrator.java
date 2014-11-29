@@ -19,10 +19,13 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("admin")
 public class Administrator extends Account{
-   // Administrator admin=new Administrator();
-     
-    
-    
+
+    public Administrator() {
+    }
+
+    public Administrator(String fname, String lname, String email, String phone, String password, String street, String city, String state, String zip) {
+        super(fname, lname, email, phone, password, street, city, state, zip);
+    }   
 }
 /*
 @Entity

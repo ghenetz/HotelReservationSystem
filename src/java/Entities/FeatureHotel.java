@@ -27,7 +27,23 @@ public class FeatureHotel implements Serializable {
     @ManyToMany(mappedBy = "hotelFeatures")
     private List<Hotel> hotels;
     private String feature_type;
-    private String discription;
+    private String description;
+
+    public FeatureHotel() {
+    }
+
+    public FeatureHotel(String feature_type, String description) {
+        this.feature_type = feature_type;
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }   
 
     public String getFeature_type() {
         return feature_type;
@@ -37,14 +53,10 @@ public class FeatureHotel implements Serializable {
         this.feature_type = feature_type;
     }
 
-    public String getDiscription() {
-        return discription;
+    public void addHotel(Hotel hotel){
+        this.hotels.add(hotel);
     }
-
-    public void setDiscription(String discription) {
-        this.discription = discription;
-    }
-
+    
     public List<Hotel> getHotels() {
         return hotels;
     }

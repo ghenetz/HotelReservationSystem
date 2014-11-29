@@ -25,11 +25,18 @@ public class FeatureRoom implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String feature_type;
-    private String discription;
+    private String description;
     @ManyToMany(mappedBy="roomFeatures")
     private List<Room> rooms;
 
+    public FeatureRoom() {
         
+    }        
+
+    public FeatureRoom(String feature_type, String description) {
+        this.feature_type = feature_type;
+        this.description = description;
+    }
 
     public String getFeature_type() {
         return feature_type;
@@ -39,12 +46,12 @@ public class FeatureRoom implements Serializable {
         this.feature_type = feature_type;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
+    public void setDescription(String description) {
+        this.description = description;
     }
     
     public Long getId() {

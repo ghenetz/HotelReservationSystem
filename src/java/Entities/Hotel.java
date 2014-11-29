@@ -41,12 +41,26 @@ public class Hotel implements Serializable {
     private List<FeatureHotel> hotelFeatures;
     private String street;
     private String city;
-    private String stateN;
+    private String state;
     @Size(min = 5, max = 5)
-    private String zipCode;
+    private String zip;
     @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
              message="{invalid.phonenumber}")
     private String phone;
+
+    public Hotel() {
+        
+    }
+
+    public Hotel(String name, String hotel_No, String street, String city, String state, String zip, String phone) {
+        this.name = name;
+        this.hotel_No = hotel_No;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phone = phone;
+    }
 
     public Long getId() {
         return id;
@@ -54,6 +68,10 @@ public class Hotel implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    
+    public void addRoom(Room room){
+        rooms.add(room);
     }
 
     public List<Room> getRooms() {
@@ -79,6 +97,10 @@ public class Hotel implements Serializable {
 
     public void setHotel_No(String hotel_No) {
         this.hotel_No = hotel_No;
+    }
+    
+    public void addFeatureHotel(FeatureHotel featureHotel){
+        hotelFeatures.add(featureHotel);
     }
 
     public List<FeatureHotel> getHotelFeatures() {
@@ -113,20 +135,20 @@ public class Hotel implements Serializable {
         this.city = city;
     }
 
-    public String getStateN() {
-        return stateN;
+    public String getState() {
+        return state;
     }
 
-    public void setStateN(String stateN) {
-        this.stateN = stateN;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public String getZipCode() {
-        return zipCode;
+    public String getZip() {
+        return zip;
     }
 
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+    public void setZip(String zip) {
+        this.zip = zip;
     }
     
 

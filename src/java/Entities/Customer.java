@@ -9,20 +9,26 @@ import javax.persistence.OneToMany;
 @Entity
 @DiscriminatorValue("customer")
 public class Customer extends Account{
-    @OneToMany
-    private List<RoomBooking> bookings;
+    @OneToMany(mappedBy = "customer")
+    private List<Booking> bookings;
 
-    public List<RoomBooking> getBookings() {
+    public Customer() {
+    }
+
+    public Customer(String fname, String lname, String email, String phone, String password, String street, String city, String state, String zip) {
+        super(fname, lname, email, phone, password, street, city, state, zip);
+    }    
+
+    public void addBooking(Booking booking){
+        this.bookings.add(booking);
+    }
+    public List<Booking> getBookings() {
         return bookings;
     }
 
-    public void setBookings(List<RoomBooking> bookings) {
+    public void setBookings(List<Booking> bookings) {
         this.bookings = bookings;
-    }
-
- 
-    
-    
+    }    
 }
 /*
 @Entity

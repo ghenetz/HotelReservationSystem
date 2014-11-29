@@ -6,7 +6,7 @@
 
 package fasade;
 
-import Entities.RoomBooking;
+import Entities.Booking;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
  * @author gizachew
  */
 @Stateless
-public class RoomBookingFacade extends AbstractFacade<RoomBooking> {
+public class RoomBookingFacade extends AbstractFacade<Booking> {
     @PersistenceContext(unitName = "HotelReservationSystemPU")
     private EntityManager em;
 
@@ -26,7 +26,7 @@ public class RoomBookingFacade extends AbstractFacade<RoomBooking> {
     }
 
     public RoomBookingFacade() {
-        super(RoomBooking.class);
+        super(Booking.class);
     }
     
 }

@@ -58,13 +58,27 @@ public class Account implements Serializable {
     private String email;
     @Pattern(regexp = "^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
             message = "{invalid.phonenumber}")
-    protected String phoneNumber;
+    protected String phone;
     private String password;
+    private String street;
     private String city;
-    private String province;
-    private String zipCode;
-    private String streetAddress;
+    private String state;
+    private String zip;
+
+    public Account() {
+    }   
     
+    public Account(String fname, String lname, String email, String phone, String password, String street, String city, String state, String zip) {
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+    }   
 
     public Long getId() {
         return id;
@@ -98,14 +112,6 @@ public class Account implements Serializable {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -122,28 +128,36 @@ public class Account implements Serializable {
         this.city = city;
     }
 
-    public String getProvince() {
-        return province;
+    public String getState() {
+        return state;
     }
 
-    public void setProvince(String province) {
-        this.province = province;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public String getZipCode() {
-        return zipCode;
+    public String getZip() {
+        return zip;
     }
 
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
+    public void setZip(String zip) {
+        this.zip = zip;
     }
 
-    public String getStreetAddress() {
-        return streetAddress;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     

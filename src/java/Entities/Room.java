@@ -32,17 +32,33 @@ public class Room implements Serializable {
     private List<FeatureRoom>roomFeatures;
     private String room_No;
     private String type;
-    private String smoking;
+    private Boolean smoking;
     private double price;
     @OneToMany(mappedBy="room")
-    private List <RoomBooking> roomBookings;
+    private List <Booking> bookings;
 
-    public List<RoomBooking> getRoomBookings() {
-        return roomBookings;
+    public Room() {
+        
     }
 
-    public void setRoomBookings(List<RoomBooking> roomBookings) {
-        this.roomBookings = roomBookings;
+    public Room(Hotel hotel, String room_No, String type, Boolean smoking, double price) {
+        this.hotel = hotel;
+        this.room_No = room_No;
+        this.type = type;
+        this.smoking = smoking;
+        this.price = price;
+    }
+
+    public void addBooking(Booking booking){
+        bookings.add(booking);
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
     }
     
     public Long getId() {
@@ -51,6 +67,10 @@ public class Room implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    
+    public void addFeatureRoom(FeatureRoom featureRoom){
+        roomFeatures.add(featureRoom);
     }
 
     public List<FeatureRoom> getRoomFeatures() {
@@ -77,11 +97,11 @@ public class Room implements Serializable {
         this.type = type;
     }
 
-    public String getSmoking() {
+    public Boolean getSmoking() {
         return smoking;
     }
 
-    public void setSmoking(String smoking) {
+    public void setSmoking(Boolean smoking) {
         this.smoking = smoking;
     }
 
