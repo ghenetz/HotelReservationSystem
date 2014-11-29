@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Pattern;
@@ -35,7 +37,8 @@ public class Hotel implements Serializable {
     @OneToMany(mappedBy = "hotel")
     private List<Room> rooms;
     @ManyToMany
-    private List<Hotel_features> features;
+    @JoinTable(name = "hotel_feature", joinColumns = { @JoinColumn(name = "hotel_id") }, inverseJoinColumns = { @JoinColumn(name = "feature_hotel_id") })
+    private List<FeatureHotel> hotelFeatures;
     private String street;
     private String city;
     private String stateN;
@@ -77,12 +80,13 @@ public class Hotel implements Serializable {
     public void setHotel_No(String hotel_No) {
         this.hotel_No = hotel_No;
     }
-    public List<Hotel_features> getFeatures() {
-        return features;
+
+    public List<FeatureHotel> getHotelFeatures() {
+        return hotelFeatures;
     }
 
-    public void setFeatures(List<Hotel_features> features) {
-        this.features = features;
+    public void setHotelFeatures(List<FeatureHotel> hotelFeatures) {
+        this.hotelFeatures = hotelFeatures;
     }
     
     public String getName() {

@@ -3,10 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/gizachew/Documents/NetBeansProjects/HotelReservationSystem/src/java/com/hotel/Reservation.java</file>
-            <file>file:/C:/Users/gizachew/Documents/NetBeansProjects/HotelReservationSystem/web/index.xhtml</file>
-            <file>file:/C:/Users/gizachew/Documents/NetBeansProjects/HotelReservationSystem/web/showRoom.xhtml</file>
-            <file>file:/C:/Users/gizachew/Documents/NetBeansProjects/HotelReservationSystem/web/welcomePrimefaces.xhtml</file>
+            <file>file:/C:/EA/HotelReservationSystem/src/conf/persistence.xml</file>
         </group>
     </open-files>
 </project-private>

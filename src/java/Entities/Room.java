@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -26,7 +28,8 @@ public class Room implements Serializable {
     @ManyToOne
     private Hotel hotel;
     @ManyToMany
-    private List<Room_fetures>fetures;
+    @JoinTable(name = "room_feature", joinColumns = { @JoinColumn(name = "room_id") }, inverseJoinColumns = { @JoinColumn(name = "feature_room_id") })
+    private List<FeatureRoom>roomFeatures;
     private String room_No;
     private String type;
     private String smoking;
@@ -50,12 +53,12 @@ public class Room implements Serializable {
         this.id = id;
     }
 
-    public List<Room_fetures> getFetures() {
-        return fetures;
+    public List<FeatureRoom> getRoomFeatures() {
+        return roomFeatures;
     }
 
-    public void setFetures(List<Room_fetures> fetures) {
-        this.fetures = fetures;
+    public void setRoomFeatures(List<FeatureRoom> roomFeatures) {
+        this.roomFeatures = roomFeatures;
     }
     
     public Hotel getHotel() {
